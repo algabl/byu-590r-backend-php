@@ -12,4 +12,6 @@ Route::controller(RegisterController::class)->group(function () {
     Route::post('register', 'register');
     Route::post('login', 'login');
     Route::post('logout', 'logout');
+    Route::post('forgot_password', 'forgotPassword');
+    Route::get(uri: 'reset_password', action:'resetPassword');
 });
