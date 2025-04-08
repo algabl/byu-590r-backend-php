@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\TempleController;
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
@@ -25,4 +26,5 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('user/send_verification_email', 'sendVerificationEmail');
         Route::post('user/change_email', 'changeEmail');
     });
+    Route::resource('temples', TempleController::class);
 });
