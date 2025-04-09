@@ -17,41 +17,53 @@ class TempleEventSeeder extends Seeder
         //
         $provoTemple = Temple::where('name', 'Provo City Center Temple')->first();
         TempleEvent::create([
-            'name' => 'Provo City Center Temple Open House',
-            'date' => '2025-05-01 10:00:00',
-            'description' => 'Join us for an open house at the Provo City Center Temple.',
+            'name' => 'Announcement',
+            'date' => '2011-10-01 00:00:00',
+            'description' => 'The Provo City Center Temple was announced.',
             'temple_id' => $provoTemple->id,
         ]);
         TempleEvent::create([
-            'name' => 'Provo City Center Temple Dedication',
-            'date' => '2025-06-01 10:00:00',
-            'description' => 'Join us for the dedication of the Provo City Center Temple.',
+            'name' => 'Groundbreaking',
+            'date' => '2012-05-12 00:00:00',
+            'description' => 'The groundbreaking ceremony for the Provo City Center Temple was held.',
             'temple_id' => $provoTemple->id,
         ]);
         TempleEvent::create([
-            'name' => 'Provo City Center Temple Youth Night',
-            'date' => '2025-07-01 18:00:00',
-            'description' => 'Join us for a youth night at the Provo City Center Temple.',
+            'name' => 'Open House',
+            'date' => '2016-01-15 00:00:00',
+            'description' => 'The Provo City Center Temple open house was held.',
+            'temple_id' => $provoTemple->id,
+        ]);
+        TempleEvent::create([
+            'name' => 'Dedication',
+            'date' => '2016-03-20 00:00:00',
+            'description' => 'The Provo City Center Temple was dedicated.',
             'temple_id' => $provoTemple->id,
         ]);
 
         $manhattanTemple = Temple::where('name', 'Manhattan New York Temple')->first();
         TempleEvent::create([
-            'name' => 'Manhattan New York Temple Open House',
-            'date' => '2025-05-01 10:00:00',
-            'description' => 'Join us for an open house at the Manhattan New York Temple.',
+            'name' => 'Announcement',
+            'date' => '2002-08-07 00:00:00',
+            'description' => 'The Manhattan New York Temple was announced.',
             'temple_id' => $manhattanTemple->id,
         ]);
         TempleEvent::create([
-            'name' => 'Manhattan New York Temple Dedication',
-            'date' => '2025-06-01 10:00:00',
-            'description' => 'Join us for the dedication of the Manhattan New York Temple.',
+            'name' => 'Site Dedication',
+            'date' => '2002-09-23 00:00:00',
+            'description' => 'The groundbreaking ceremony for the Manhattan New York Temple was held.',
             'temple_id' => $manhattanTemple->id,
         ]);
         TempleEvent::create([
-            'name' => 'Manhattan New York Temple Youth Night',
-            'date' => '2025-07-01 18:00:00',
-            'description' => 'Join us for a youth night at the Manhattan New York Temple.',
+            'name' => 'Open House',
+            'date' => '2004-05-08 00:00:00',
+            'description' => 'The Manhattan New York Temple open house was held.',
+            'temple_id' => $manhattanTemple->id,
+        ]);
+        TempleEvent::create([
+            'name' => 'Dedication',
+            'date' => '2004-06-13 00:00:00',
+            'description' => 'The Manhattan New York Temple was dedicated.',
             'temple_id' => $manhattanTemple->id,
         ]);
     }

@@ -18,11 +18,12 @@ class TempleDetailsSeeder extends Seeder
         TempleDetails::create([
             'temple_id' => $provoTemple->id,
             'architect' => 'Architect Name',
-            'square_footage' => 10000,
+            'square_footage' => 85084,
             'number_ordinance_rooms' => 2,
-            'number_sealing_rooms' => 3,
+            'number_sealing_rooms' => 5,
             'number_surface_parking_spots' => 50,
             'additional_notes' => 'Additional notes about the temple.',
         ]);
+        
     }
 }
