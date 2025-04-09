@@ -17,7 +17,7 @@ class TempleController extends BaseController
     public function index()
     {
         //
-        $temples = Temple::all();
+        $temples = Temple::with(['templeDetails', 'templeEvents'])->get(); // Eager load related data
         foreach ($temples as $temple) {
             $temple->temple_image = $this->getS3Url($temple->temple_image);
         }
