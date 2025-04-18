@@ -8,7 +8,7 @@ use App\Models\TempleDetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Support\Facades\Validator;
 
 class TempleController extends BaseController
 {
@@ -38,6 +38,28 @@ class TempleController extends BaseController
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'latitude' => 'numeric',
+            'longitude' => 'numeric',
+            'status' => 'required',
+            'walk_score' => 'integer',
+            'bike_score' => 'integer',
+            'transit_score' => 'integer',
+            'temple_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'temple_details.architect' => 'string|max:255',
+            'temple_details.square_footage' => 'integer',
+            'temple_details.number_ordinance_rooms' => 'integer',
+            'temple_details.number_sealing_rooms' => 'integer',
+            'temple_details.number_surface_parking_spots' => 'integer',
+            'temple_details.additional_notes' => 'nullable|string|max:1000',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error.', $validator->errors(), code: 400);
+        }
+
+
         $temple = new Temple();
         $temple->name = $request->name;
         $temple->latitude = $request->latitude;
@@ -96,7 +118,27 @@ class TempleController extends BaseController
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'latitude' => 'numeric',
+            'longitude' => 'numeric',
+            'status' => 'required',
+            'walk_score' => 'integer',
+            'bike_score' => 'integer',
+            'transit_score' => 'integer',
+            'temple_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'temple_details.architect' => 'string|max:255',
+            'temple_details.square_footage' => 'integer',
+            'temple_details.number_ordinance_rooms' => 'integer',
+            'temple_details.number_sealing_rooms' => 'integer',
+            'temple_details.number_surface_parking_spots' => 'integer',
+            'temple_details.additional_notes' => 'nullable|string|max:1000',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error.', $validator->errors(), code: 400);
+        }
+
         $temple = Temple::findOrFail($id);
         if ($request->has('name')) {
             $temple->name = $request->name;

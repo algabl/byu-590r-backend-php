@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\TempleController;
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\TempleEventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,4 +28,5 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('user/change_email', 'changeEmail');
     });
     Route::resource('temples', TempleController::class);
+    Route::resource('temple-events', TempleEventController::class);
 });
