@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Temple extends Model
 {
@@ -15,6 +16,11 @@ class Temple extends Model
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+            'latitude' => 'decimal:8',
+            'longitude' => 'decimal:8',
+            'walk_score' => 'integer',
+            'bike_score' => 'integer',
+            'transit_score' => 'integer',
         ];
     }
 
@@ -25,5 +31,10 @@ class Temple extends Model
     public function templeEvents()
     {
         return $this->hasMany(TempleEvent::class);
+    }
+
+    public function transitStops():BelongsToMany
+    {
+        return $this->belongsToMany(TransitStop::class);
     }
 }
